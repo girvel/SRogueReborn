@@ -10,10 +10,10 @@ namespace SRogue.Core.Modules
     public class Display
     {
         public enum Destination
-    	{
-	        Overlay,
+        {
+            Overlay,
             Screen
-	    }
+        }
 
         public readonly int Width = 79;
         public readonly int Height = 25;
@@ -70,8 +70,6 @@ namespace SRogue.Core.Modules
 
         public void ShowEndScreen()
         {
-            var endScreen = new char[Height, Width];
-
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)

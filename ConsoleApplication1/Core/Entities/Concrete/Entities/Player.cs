@@ -27,11 +27,14 @@ namespace SRogue.Core.Entities.Concrete.Entities
         {
             if (target is HostileUnitBase)
             {
-                var weapon = GameState.Current.Inventory.Weapon.Item as WeaponBase;
+				// TODO unused weapon var
+                //var weapon = GameState.Current.Inventory.Weapon.Item as WeaponBase;
                 var targetUnit = target as HostileUnitBase;
                 var damage = SummarizeAttack();
+
                 UiManager.Current.Actions.Append("Dealead {0} damage to Zombie. ".FormatWith(damage));
                 targetUnit.Damage(damage, Common.DamageType.Physical);
+
                 if (targetUnit.Health <= 0)
                 {
                     GameState.Current.Gold += (int)(targetUnit.Reward * (Rnd.Current.NextDouble() + 0.5f));
